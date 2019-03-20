@@ -1,0 +1,9 @@
+{
+  "name": "rodrigo-da-silva-lab3",
+  "version": "0.0.0",
+  "description": "RodrigoDaSilvaLab3",
+  "main": "server.js",
+  "author": {
+    "name": ""
+  }
+}
