@@ -5,6 +5,9 @@
     <Name>RodrigoDaSilvaLab3</Name>
     <RootNamespace>RodrigoDaSilvaLab3</RootNamespace>
     <LastActiveSolutionConfig>Debug|Any CPU</LastActiveSolutionConfig>
+    <EnableTypeScript>true</EnableTypeScript>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+    <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -29,8 +32,59 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="app\controllers\index.server.controller.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\controllers\user.server.controller.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\models\user.server.model.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\routes\index.server.routes.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\routes\user.server.routes.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="config\config.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="config\env\development.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="config\express.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="config\mongoose.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="config\passport.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="config\strategies\local.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="public\systemjs.config.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="server.js" />
+    <Content Include="app\views\index.ejs">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="package.json" />
+    <Content Include="public\app\authentication\authentication.template.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="public\app\authentication\signin\signin.template.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="public\app\authentication\signup\signup.template.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="public\app\home\home.template.html">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="README.md" />
     <Content Include="tsconfig.json">
       <SubType>Code</SubType>
@@ -38,6 +92,63 @@
     <Content Include="typings.json">
       <SubType>Code</SubType>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="app\controllers\" />
+    <Folder Include="app\models\" />
+    <Folder Include="app\views\" />
+    <Folder Include="app\routes\" />
+    <Folder Include="config\" />
+    <Folder Include="app\" />
+    <Folder Include="config\env\" />
+    <Folder Include="config\strategies\" />
+    <Folder Include="public\" />
+    <Folder Include="public\app\" />
+    <Folder Include="public\app\authentication\" />
+    <Folder Include="public\app\authentication\signup\" />
+    <Folder Include="public\app\authentication\signin\" />
+    <Folder Include="public\app\home\" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="public\app\app.component.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="public\app\app.module.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="public\app\app.routes.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="public\app\authentication\authentication.service.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="public\app\authentication\signin\signin.component.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="public\app\authentication\signup\signup.component.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="public\app\bootstrap.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="public\app\authentication\authentication.component.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="public\app\authentication\authentication.module.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="public\app\authentication\authentication.routes.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="public\app\home\home.component.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="public\app\home\home.module.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="public\app\home\home.routes.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
   </ItemGroup>
   <!-- Do not delete the following Import Project.  While this appears to do nothing it is a marker for setting TypeScript properties before our import that depends on them. -->
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="False" />
