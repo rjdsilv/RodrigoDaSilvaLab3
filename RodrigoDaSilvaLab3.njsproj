@@ -8,6 +8,7 @@
     <EnableTypeScript>true</EnableTypeScript>
     <TypeScriptSourceMap>true</TypeScriptSourceMap>
     <TypeScriptModuleKind>CommonJS</TypeScriptModuleKind>
+    <ToolsVersionPromptShown>0.0</ToolsVersionPromptShown>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -32,13 +33,22 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="app\controllers\courses.server.controller.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="app\controllers\index.server.controller.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="app\controllers\student.server.controller.js">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="app\models\course.server.model.js">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="app\models\student.server.model.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\routes\courses.server.routes.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="app\routes\index.server.routes.js">
@@ -51,6 +61,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="config\env\development.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="config\env\production.js">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="config\env\test.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="config\express.js">
@@ -85,6 +101,8 @@
     <Content Include="public\app\authentication\signup\signup.template.html">
       <SubType>Code</SubType>
     </Content>
+    <Content Include="public\app\courses\courses.template.html" />
+    <Content Include="public\app\courses\create\courses-create.template.html" />
     <Content Include="public\app\home\home.template.html">
       <SubType>Code</SubType>
     </Content>
@@ -113,7 +131,9 @@
     <Folder Include="public\app\authentication\" />
     <Folder Include="public\app\authentication\signup\" />
     <Folder Include="public\app\authentication\signin\" />
+    <Folder Include="public\app\courses\create\" />
     <Folder Include="public\app\home\" />
+    <Folder Include="public\app\courses\" />
     <Folder Include="public\css\" />
   </ItemGroup>
   <ItemGroup>
@@ -145,6 +165,21 @@
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="public\app\authentication\authentication.routes.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="public\app\courses\courses.component.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="public\app\courses\courses.module.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="public\app\courses\courses.routes.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="public\app\courses\courses.service.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="public\app\courses\create\courses-create.component.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="public\app\home\home.component.ts">

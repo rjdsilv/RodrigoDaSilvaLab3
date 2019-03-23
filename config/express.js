@@ -53,6 +53,7 @@ module.exports = function () {
 
     // Load the routing files	
     require('../app/routes/student.server.routes')(app);
+    require('../app/routes/courses.server.routes')(app);
     require('../app/routes/index.server.routes')(app);
 
     // Return the Express application instance
