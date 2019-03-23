@@ -7,14 +7,19 @@ import { AuthenticationService } from '../authentication.service';
     templateUrl: 'app/authentication/signup/signup.template.html'
 })
 export class SignupComponent {
-    errorMessage: string;
-    user: any = {};
+    errorMessage: string = '';
+    student: any = {};
 
     constructor(private _authenticationService: AuthenticationService, private _router: Router) { }
 
     signup() {
+        console.log('Student: ' + JSON.stringify(this.student));
         this._authenticationService
-            .signup(this.user)
-            .subscribe(result => this._router.navigate(['/']), error => this.errorMessage = error);
+            .signup(this.student)
+            .subscribe(result => this._router.navigate(['/authentication/signin']), error => this.errorMessage = error);
+    }
+
+    hasError() {
+        return this.errorMessage.length > 0
     }
 }

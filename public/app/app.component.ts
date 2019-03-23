@@ -1,8 +1,7 @@
 ﻿import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 
 @Component({
     selector: 'mean-app',
-    template: '<router-outlet></router-outlet>',
+    templateUrl: './app/app.template.html',
 })
 export class AppComponent { }

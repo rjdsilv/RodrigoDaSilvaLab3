@@ -1,5 +1,5 @@
 ﻿// Load the module dependencies
-const User = require('mongoose').model('User');
+const Student = require('mongoose').model('Student');
 const passport = require('passport');
 
 // Create a new error handling controller method
@@ -13,7 +13,7 @@ const getErrorMessage = function (err) {
             // If a unique index error occurs set the message error
             case 11000:
             case 11001:
-                message = 'Username already exists';
+                message = 'Student number already exists';
                 break;
             // If a general error occurs set the message error
             default:
@@ -30,50 +30,50 @@ const getErrorMessage = function (err) {
     return message;
 };
 
-// Create a new controller method that signin users
+// Create a new controller method that signin students
 exports.signin = function (req, res, next) {
-    passport.authenticate('local', (err, user, info) => {
-        if (err || !user) {
+    passport.authenticate('local', (err, student, info) => {
+        if (err || !student) {
             res.status(400).send(info);
         } else {
             // Remove sensitive data before login
-            user.password = undefined;
-            user.salt = undefined;
+            student.password = undefined;
+            student.salt = undefined;
 
             // Use the Passport 'login' method to login
-            req.login(user, (err) => {
+            req.login(student, (err) => {
                 if (err) {
                     res.status(400).send(err);
                 } else {
-                    res.json(user);
+                    res.json(student);
                 }
             });
         }
     })(req, res, next);
 };
 
-// Create a new controller method that creates new 'regular' users
+// Create a new controller method that creates new 'regular' students
 exports.signup = function (req, res) {
-    const user = new User(req.body);
-    user.provider = 'local';
+    const student = new Student(req.body);
+    student.provider = 'local';
 
-    // Try saving the User
-    user.save((err) => {
+    // Try saving the Student
+    student.save((err) => {
         if (err) {
             return res.status(400).send({
                 message: getErrorMessage(err)
             });
         } else {
             // Remove sensitive data before login
-            user.password = undefined;
-            user.salt = undefined;
+            student.password = undefined;
+            student.salt = undefined;
 
-            // Login the user
-            req.login(user, function (err) {
+            // Login the Student
+            req.login(student, function (err) {
                 if (err) {
                     res.status(400).send(err);
                 } else {
-                    res.json(user);
+                    res.json(student);
                 }
             });
         }
@@ -85,16 +85,16 @@ exports.signout = function (req, res) {
     // Use the Passport 'logout' method to logout
     req.logout();
 
-    // Redirect the user back to the main application page
+    // Redirect the Student back to the main application page
     res.redirect('/');
 };
 
 //uses the Passport-initiated req.
-//isAuthenticated() method to check whether a user is currently authenticated
+//isAuthenticated() method to check whether a Student is currently authenticated
 exports.requiresLogin = function (req, res, next) {
     if (!req.isAuthenticated()) {
         return res.status(401).send({
-            message: 'User is not logged in'
+            message: 'Student is not logged in'
         });
     }
     next();

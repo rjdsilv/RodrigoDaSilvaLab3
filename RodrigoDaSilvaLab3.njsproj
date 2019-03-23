@@ -35,16 +35,16 @@
     <Compile Include="app\controllers\index.server.controller.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="app\controllers\user.server.controller.js">
+    <Compile Include="app\controllers\student.server.controller.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="app\models\user.server.model.js">
+    <Compile Include="app\models\student.server.model.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="app\routes\index.server.routes.js">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="app\routes\user.server.routes.js">
+    <Compile Include="app\routes\student.server.routes.js">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="config\config.js">
@@ -73,6 +73,9 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="package.json" />
+    <Content Include="public\app\app.template.html">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="public\app\authentication\authentication.template.html">
       <SubType>Code</SubType>
     </Content>
@@ -83,6 +86,9 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="public\app\home\home.template.html">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="public\css\styles.css">
       <SubType>Code</SubType>
     </Content>
     <Content Include="README.md" />
@@ -108,6 +114,7 @@
     <Folder Include="public\app\authentication\signup\" />
     <Folder Include="public\app\authentication\signin\" />
     <Folder Include="public\app\home\" />
+    <Folder Include="public\css\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="public\app\app.component.ts">

@@ -1,12 +1,39 @@
-﻿<div *ngIf="user">
-    <h1>Hello {{user.firstName}}</h1>
-    <a href="/api/auth/signout">Signout</a>
+﻿<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" [routerLink]="['/']">Student App</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/']">Home</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            <!-- If the student is not logged in show the items bellow -->
+            <li class="nav-item" *ngIf="!student">
+                <a class="nav-link" [routerLink]="['/authentication/signin']">Signin</a>
+            </li>
+            <li class="nav-item" *ngIf="!student">
+                <a class="nav-link" [routerLink]="['/authentication/signup']">Signup</a>
+            </li>
+
+            <!-- If the student is logged in show the items bellow -->
+            <li class="nav-item mr-3" *ngIf="student">
+                <span class="nav-link">Hello, {{student.firstName}}</span>
+            </li>
+            <li class="nav-item" *ngIf="student">
+                <a class="nav-link" href="/api/auth/signout">Signout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<!--
+<div *ngIf="student">
     <ul>
         <li><a [routerLink]="['/articles']">List Articles</a></li>
         <li><a [routerLink]="['/articles/create']">Create Article</a></li>
     </ul>
 </div>
-<div *ngIf="!user">
-    <a [routerLink]="['/authentication/signup']">Signup</a>
-    <a [routerLink]="['/authentication/signin']">Signin</a>
-</div>
+-->

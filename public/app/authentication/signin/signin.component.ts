@@ -8,7 +8,7 @@ import { AuthenticationService } from '../authentication.service';
 })
 
 export class SigninComponent {
-    errorMessage: string;
+    errorMessage: string = '';
     credentials: any = {};
 
     constructor(private _authenticationService: AuthenticationService, private _router: Router) { }
@@ -16,9 +16,17 @@ export class SigninComponent {
     //handle any value event with the
     //first arrow function and any error with the second arrow function
     signin() {
-        this._authenticationService.signin(
-            this.credentials).subscribe(result =>
-                this._router.navigate(['/']),
-                error => this.errorMessage = error);
+        this._authenticationService.signin(this.credentials).subscribe(
+            result => {
+                this._router.navigate(['/']);
+            },
+            error => {
+                this.errorMessage = error;
+            }
+        );
+    }
+
+    hasError() {
+        return this.errorMessage.length > 0
     }
 }

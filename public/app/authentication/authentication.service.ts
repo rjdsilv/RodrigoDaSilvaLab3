@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 
 @Injectable()
 export class AuthenticationService {
-    public user = window['user'];
+    public student = window['student'];
 
     private _signinURL = 'api/auth/signin';
     private _signupURL = 'api/auth/signup';
@@ -14,7 +14,7 @@ export class AuthenticationService {
     }
 
     isLoggedIn(): boolean {
-        return (!!this.user);
+        return (!!this.student);
     }
 
     signin(credentials: any): Observable<any> {
@@ -24,17 +24,17 @@ export class AuthenticationService {
         });
         let options = new RequestOptions({ headers: headers });
         return this.http.post(this._signinURL, body, options)
-            .map(res => this.user = res.json())
+            .map(res => this.student = res.json())
             .catch(this.handleError)
     }
 
-    signup(user: any): Observable<any> {
-        let body = JSON.stringify(user);
+    signup(student: any): Observable<any> {
+        let body = JSON.stringify(student);
         let headers = new Headers({
             'Content-Type': 'application/json'
         }); let options = new RequestOptions({ headers: headers });
         return this.http.post(this._signupURL, body, options)
-            .map(res => this.user = res.json())
+            .map(res => this.student = res.json())
             .catch(this.handleError)
     }
 
