@@ -10,3 +10,26 @@
     padding-top: 15px;
     padding-bottom: 15px;
 }
+
+.app-table-header {
+    background-color: #555555;
+    text-transform: uppercase;
+    font-weight: bolder;
+    border-top: 1px solid #252525;
+    border-bottom: 1px solid #252525;
+    padding: 10px 0;
+    color: white;
+}
+
+.app-table-body {
+    border-bottom: 1px solid #d5d5d5;
+    padding: 5px 0;
+}
+
+.app-operation-link {
+    color: #757575;
+}
+
+.app-operation-link:hover {
+    color: #757575;
+}

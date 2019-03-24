@@ -1,5 +1,6 @@
 ﻿const mongoose = require('mongoose');
 const Course = mongoose.model('Course');
+const ObjectId = mongoose.Types.ObjectId;
 //
 function getErrorMessage(err) {
     if (err.errors) {
@@ -27,7 +28,10 @@ exports.create = function (req, res) {
 };
 //
 exports.list = function (req, res) {
-    Course.find().sort('-created').populate('student', 'firstName lastName fullName').exec((err, courses) => {
+    const studentId = req.user ? req.user.id : "0";
+    console.log("STUDENT ID = " + studentId);
+
+    Course.find({student: new ObjectId(studentId)}).sort('-created').populate('student', 'firstName lastName fullName').exec((err, courses) => {
         if (err) {
             return res.status(400).send({
                 message: getErrorMessage(err)

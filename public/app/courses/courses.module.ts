@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { CoursesRoutes } from './courses.routes';
 import { CoursesComponent } from './courses.component';
 import { CoursesCreateComponent } from './create/courses-create.component';
+import { CoursesListComponent } from './list/courses-list.component';
 
 @NgModule({
     imports: [
@@ -15,7 +16,8 @@ import { CoursesCreateComponent } from './create/courses-create.component';
     ],
     declarations: [
         CoursesComponent,
-        CoursesCreateComponent
+        CoursesCreateComponent,
+        CoursesListComponent
     ]
 })
 export class CoursesModule { }

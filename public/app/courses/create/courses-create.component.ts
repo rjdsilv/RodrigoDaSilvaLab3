@@ -18,7 +18,7 @@ export class CoursesCreateComponent {
             .subscribe(
                 createdCourse => {
                     console.log('SUCCESS ' + JSON.stringify(createdCourse));
-                    this._router.navigate(['/courses', createdCourse._id]);
+                    this._router.navigate(['/courses']);
                 },
                 error => {
                     console.log('ERRROR ' + JSON.stringify(error));
