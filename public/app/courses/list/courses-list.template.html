@@ -6,6 +6,13 @@
         </div>
         <div class="col"></div>
     </div>
+    <div class="row" *ngIf="hasError()">
+        <div class="col"></div>
+        <div class="col-6 alert alert-danger">
+            {{errorMessage}}
+        </div>
+        <div class="col"></div>
+    </div>
     <div class="row" *ngIf="courses && courses.length === 0">
         <div class="col-12 alert alert-warning">
             No courses created yet. Do you want to <a [routerLink]="['/courses/create']">create one</a>?
@@ -31,7 +38,7 @@
                     <a class="app-operation-link" [routerLink]="['/courses', course._id, 'edit']"><i class="fas fa-edit"></i></a>
                 </div>
                 <div class="col">
-                    <button type="button" class="btn btn-link app-operation-link"><i class="fas fa-trash-alt"></i></button>
+                    <button type="button" class="btn btn-link app-operation-link" (click)="delete(course._id)"><i class="fas fa-trash-alt"></i></button>
                 </div>
             </div>
         </div>

@@ -3,8 +3,6 @@ const Schema = mongoose.Schema;
 const CourseSchema = new Schema({
     code: {
         type: String,
-        // Set a unique 'code' index
-        unique: true,
         // Validate 'code' value existance
         required: 'Course code is required',
         // Trim the 'code' field

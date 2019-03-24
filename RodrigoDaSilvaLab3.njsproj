@@ -103,6 +103,7 @@
     </Content>
     <Content Include="public\app\courses\courses.template.html" />
     <Content Include="public\app\courses\create\courses-create.template.html" />
+    <Content Include="public\app\courses\edit\courses-edit.template.html" />
     <Content Include="public\app\courses\list\courses-list.template.html" />
     <Content Include="public\app\home\home.template.html">
       <SubType>Code</SubType>
@@ -134,6 +135,7 @@
     <Folder Include="public\app\authentication\signin\" />
     <Folder Include="public\app\courses\create\" />
     <Folder Include="public\app\courses\list\" />
+    <Folder Include="public\app\courses\edit\" />
     <Folder Include="public\app\home\" />
     <Folder Include="public\app\courses\" />
     <Folder Include="public\css\" />
@@ -182,6 +184,9 @@
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="public\app\courses\create\courses-create.component.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="public\app\courses\edit\courses-edit.component.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="public\app\courses\list\courses-list.component.ts">
